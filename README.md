@@ -1,74 +1,74 @@
 # Compiling Sven Co-op Maps
 
 ## Svencraft / Hammer Setup
-Download the Sven Co-op SDK using steam
+Begin by download the Sven Co-op SDK using steam, launching the SDK (Svencraft) and creating a game configuration called **Sven Co-op**.
 
-Create a game configuration, call it Sven Co-op.
+Configure paths accordingly, replacing **<steam_path>** and **<repos_path>** with your own drives/paths:
 
-Configure paths accordingly, replacing <steam_path> and <repos_path> with your own drive/path.
-
-Paths -> Game Executable
+**Paths -> Game Executable**
 ```
 <steam_path>\steamapps\common\Sven Co-op
 ```
 
-Paths -> Mod Directory
+**Paths -> Mod Directory**
 ```
 <steam_path>\steamapps\common\Sven Co-op\svencoop
 ```
 
-Paths -> Game Directory
+**Paths -> Game Directory**
 ```
 <steam_path>\steamapps\common\Sven Co-op\svencoop
 ```
 
-Paths -> RMF Directory:
+**Paths -> RMF Directory**
 ```
 <repos_path>\svencoop-lentoman
 ```
 
-Textures -> Add Wads:
+**Textures -> Add Wads**
 ```
 <steam_path>\steamapps\common\Sven Co-op\svencoop\halflife.wad
 <repos_path>\svencoop-lentoman\sc_frogger\textures\sc_frogger.wad
 ```
 
-Build -> Game Executable:
+**Build -> Game Executable**
 ```
 <steam_path>\steamapps\common\Sven Co-op\svencoop.exe
 ```
 
-For build executables there are issues with spaces, first create a symbolic link using:
+For build executables there are issues with spaces in path, first create a symbolic link by opening a new Command Prompt as administrator and using the following command:
+```
 mklink /J C:\sven-sdk "<steam_path>\steamapps\common\Sven Co-op SDK"
+```
 
-Build -> CSG executable:
+**Build -> CSG executable**
 ```
 C:\sven-sdk\mapping\compilers\SC-CSG_x64.exe
 ```
 
-Build -> BSP executable:
+**Build -> BSP executable**
 ```
 C:\sven-sdk\mapping\compilers\SC-BSP_x64.exe
 ```
 
-Build -> VIS executable:
+**Build -> VIS executable**
 ```
 C:\sven-sdk\mapping\compilers\SC-VIS_x64.exe
 ```
 
-Build -> RAD executable:
+**Build -> RAD executable**
 ```
 C:\sven-sdk\mapping\compilers\SC-RAD_x64.exe
 ```
 
-Place compiled maps:
+**Place compiled maps**
 ```
 <steam_path>\steamapps\common\Sven Co-op\svencoop\maps
 ```
 
 ## Installing Additional Map Files
 
-Before compiling and running any of the maps, make sure to install all additional files required by the maps.
+Before compiling and running any of the maps, make sure any additional mapfiles are installed.
 
 Copy the contents from a maps release folder into:
 ```
@@ -77,11 +77,18 @@ Copy the contents from a maps release folder into:
 
 ## Compiling
 
-To create a built a batch / build configuration is recommended.
+To compile a map, importing or creating a batch / build configuration is recommended.
 
-Alternatively you can shut down Svencraft/Hammer and copy the <repos_path>\svencoop-lentoman\CmdSeq.wc to <steam_path>\steamapps\common\Sven Co-op SDK\mapping\hammer
+Optionally shut down Svencraft/Hammer and copy the 
+```
+<repos_path>\svencoop-lentoman\Hammer\CmdSeq.wc
+```
+to 
+```
+<steam_path>\steamapps\common\Sven Co-op SDK\mapping\hammer
+```
 
-Open a .rmf map file then press the run button or F9 key in Svencraft/Hammer. Click the Expert button in the dialog that opens. If you copied the .wc script, make sure the **Sven Co-op (full)** config is selected, otherwise create a new config with the same name and the following commands:
+Then open a .rmf map file then press the run button or F9 key in Svencraft/Hammer. Click the Expert button in the dialog that opens. If you copied the .wc script, make sure the **Sven Co-op (full)** config is selected, otherwise create a new config with the same name and the following commands:
 
 Command: ```Change Directory```  
 Parameters: ```$exedir```
@@ -103,6 +110,8 @@ Parameters: ```$path\$file.bsp $bspdir\$file.bsp```
 
 Command: ```$game_exe```  
 Parameters: ```+map $file -dev -console```
+
+Finally click the **Go!** button
 
 ## Packaging Final Build Zip
 
