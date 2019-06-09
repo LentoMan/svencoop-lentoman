@@ -1,0 +1,8 @@
+Title: sc_frogger_final
+Author: LentoMan (lentoman@lentoman.net)
+Textures by: Blazeeer (blazeeer@lycos.com)
+
+This map is based on the classic game, frogger.
+Beware of the disco room if you are epileptic!
+
+Have fun! ;)
